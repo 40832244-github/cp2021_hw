@@ -162,7 +162,10 @@ import math
 # 導入亂數模組
 from random import random, randint
 
-brython_div=document["brython_div"]
+brython_div = document["brython_div"]
+
+url = "https://40832244-github.github.io/cp2021_hw/content/run.html.txt"
+data = open(url).readlines()
 
 def update_score(new_score):
     global high_score
