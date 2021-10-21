@@ -31,18 +31,7 @@
 <p></p>
 <p></p>
 <h2>W2</h2>
-<h3>run</h3>
-<!-- 導入 brython 程式庫 -->
-<script src="/static/brython.js"></script>
-<script src="/static/brython_stdlib.js"></script>
-<!-- 啟動 Brython -->
-<script>
-window.onload=function(){
-brython({debug:1.pythonpath:['/static/'.'/../downloads/py/']}):
-}
-</script>
-<div id="brython_div"></div>
-<script type="text/python">
+<h3>run</h3><script src="/static/brython.js"></script><script src="/static/brython_stdlib.js"></script><script type="text/python">
 # 從 browser 導入 document 並設為 doc
 from browser import document as doc
 # 使用者可以透過 window 當作介面使用其他 Javascript 功能
@@ -190,5 +179,15 @@ doc.addEventListener("keydown", key_push1)
 instructions_btn = doc["instructions-btn1"]
 instructions_btn.addEventListener("click", show_instructions1)
 browser.timer.set_interval(game, 1000/15)
+brython_div <= html.BR()
+</script><script>
+window.onload=function(){
+brython({debug:1.pythonpath:['/static/'.'/../downloads/py/']}):
+}
+</script><script>
+window.onload=function(){
+brython({debug:1.pythonpath:['/static/'.'/../downloads/py/']}):
+}
+</script><script type="text/python">
 brython_div <= html.BR()
 </script><h2>W3</h2>

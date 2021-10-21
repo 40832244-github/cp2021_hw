@@ -139,18 +139,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W2 << <a href='W2.html'>Previous</a> <a href='W3.html'>Next</a> >> W3<br /><h1>run</h1>
-<!-- 導入 brython 程式庫 -->
-<script src="./../cmsimde/static/brython.js"></script>
-<script src="./../cmsimde/static/brython_stdlib.js"></script>
-<!-- 啟動 Brython -->
-<script>
-window.onload=function(){
-brython({debug:1.pythonpath:['./../cmsimde/static/'.'/../downloads/py/']}):
-}
-</script>
-<div id="brython_div"></div>
-<script type="text/python">
+    <div id="tipue_search_content">W2 << <a href='W2.html'>Previous</a> <a href='W3.html'>Next</a> >> W3<br /><h1>run</h1><script src="./../cmsimde/static/brython.js"></script><script src="./../cmsimde/static/brython_stdlib.js"></script><script type="text/python">
 # 從 browser 導入 document 並設為 doc
 from browser import document as doc
 # 使用者可以透過 window 當作介面使用其他 Javascript 功能
@@ -298,6 +287,16 @@ doc.addEventListener("keydown", key_push1)
 instructions_btn = doc["instructions-btn1"]
 instructions_btn.addEventListener("click", show_instructions1)
 browser.timer.set_interval(game, 1000/15)
+brython_div <= html.BR()
+</script><script>
+window.onload=function(){
+brython({debug:1.pythonpath:['./../cmsimde/static/'.'/../downloads/py/']}):
+}
+</script><script>
+window.onload=function(){
+brython({debug:1.pythonpath:['./../cmsimde/static/'.'/../downloads/py/']}):
+}
+</script><script type="text/python">
 brython_div <= html.BR()
 </script><br />W2 << <a href='W2.html'>Previous</a> <a href='W3.html'>Next</a> >> W3</div>
         
