@@ -141,9 +141,11 @@ img.add_border {
         </header>
     <div id="tipue_search_content">HW1 << <a href='HW1.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2<br /><h1>設置ssh</h1>
 <p>1.<span>點選資料夾的Portablegit</span><span>→bin→sh.exe</span></p>
+<p><span></span></p>
 <p><span><img alt="" height="250" src="./../images/SSH1.PNG" width="500"/></span></p>
 <p><span>2.</span>輸入ssh-keygen -t rsa -b 4096 -C "40832244"(需改成自己學號)</p>
 <h4>按enter<span>→輸入/y/tmp/id_rsa</span><span>→</span><span>連續按按2次enter</span></h4>
+<p><span></span></p>
 <p><span><img alt="" height="250" src="./../images/SSH2.PNG" width="500"/></span></p>
 <p><span>3.</span>下載putty_home、GitExtensions，將start_ipv4.bat移到白窗  並新增 </p>
 <table border="0" cellpadding="0" cellspacing="0">
@@ -163,10 +165,24 @@ img.add_border {
 </tbody>
 </table>
 <p><img alt="" height="500" src="./../images/SSH.3.png" width="250"/></p>
-<p>4.打開.git資料夾，把config移到白窗，新增[remote "origin"]裡的url = git@github.com:40832244/cp2021.git</p>
+<p>4.打開.git資料夾，把config移到白窗，新增[remote "origin"]裡的url = <a href="mailto:git@github.com:40832244/cp2021.git">git@github.com:40832244/cp2021.git</a></p>
 <p></p>
+<p><img alt="" height="103" src="./../images/SSH5.PNG" width="567"/></p>
+<p>5.打開Putty Key Generator，將鼠標在紅框中搖晃會產生鑰匙，並先將它複製站存於筆記本</p>
+<p>   完成後點選save public key(private 需多設一個密碼) 名為 id_rsa</p>
+<p><img alt="" height="288" src="./../images/SSH444.png" width="317"/></p>
+<p>6.打開Putty Configuration並照著圖片更改</p>
 <p></p>
-<br />HW1 << <a href='HW1.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2</div>
+<p><img alt="" height="373" src="./../images/SSH7.PNG" width="416"/></p>
+<p><img alt="" height="373" src="./../images/SSH88.PNG" width="415"/></p>
+<p>7.點選SSH旁邊的加號點Auth，點Browse...點選檔案<img alt="" height="371" src="./../images/SSH99.png" width="413"/></p>
+<p>選去剛剛儲存的id_rsa(記得選成所有檔案才看的到)</p>
+<p><img alt="" height="349" src="./../images/SSH66.png" width="558"/></p>
+<p>8.回到第6.部頁面點save，進到github網頁setting的<a class="js-selected-navigation-item menu-item" data-selected-links="ssh_certificate_authorities /settings/keys" href="https://github.com/settings/keys">SSH and GPG keys</a>新增一把鑰匙，並到記事本內將剛剛在<span>Putty Key Generator產生的鑰匙貼上，並檢查句尾是學號</span></p>
+<p><span><img alt="" height="360" src="./../images/SSH11.PNG" width="559"/></span></p>
+<p><span>點選Add SSH key</span></p>
+<p><span><img alt="" height="307" src="./../images/SSH10.PNG" width="544"/></span></p>
+<p><span>完成!!!</span></p><br />HW1 << <a href='HW1.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2</div>
         
     <!-- footer -->
       <div class="container">
