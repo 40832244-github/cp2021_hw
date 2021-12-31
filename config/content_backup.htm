@@ -142,6 +142,9 @@ run()
 <p><a href="https://40832244-github.github.io/cp2021_hw/content/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87.html">自動貪吃蛇</a></p>
 <p></p>
 <h3>手動貪吃蛇</h3>
+<!-- 導入 brython 程式庫 -->
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
 <!-- 啟動 Brython -->
 <script>
 window.onload=function(){
@@ -219,100 +222,17 @@ run()
 <!-- 執行與清除按鈕開始 -->
 <p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
 <!-- 執行與清除按鈕結束 -->
-<p></p>
+<p><textarea autocomplete="off" id="kw_console" style="margin: 0px; width: 485px; height: 195px;"></textarea></p>
 <!-- 程式執行 ouput 區 -->
-<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console" style="margin: 0px; width: 485px; height: 195px;"></textarea></div>
-<p><br/><a href="https://colorlib.com" target="_blank"></a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-<div class="container">
-<div class="row pt-3 mx-auto"></div>
-</div>
-<!-- for footer -->
-<p></p>
-<!-- for site wrap -->
-<p></p>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/jquery-ui.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/popper.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/bootstrap.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/aos.js"></script>
-<!--
-            <script src="../cmsimde/static/chimper/js/typed.js"></script>
-                    <script>
-                    var typed = new Typed('.typed-words', {
-                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
-                    typeSpeed: 80,
-                    backSpeed: 80,
-                    backDelay: 4000,
-                    startDelay: 1000,
-                    loop: true,
-                    showCursor: true
-                    });
-                    </script>
-            -->
-<script src="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/text/cmsimde/static/chimper/js/main.js"></script>
-<!-- 啟用 LaTeX equations 編輯 -->
-<p></p>
-<!-- <script>
-  MathJax = {
-    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
-  };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
-<p><br/>手動貪吃蛇 &lt;&lt; <a href="/get_page/%E6%89%8B%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/手動貪吃蛇.html">Previous</a> <a href="/get_page/%E6%89%8B%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/方塊.html">Next</a> &gt;&gt; 方塊</p>
-<!-- footer -->
-<div class="container">
-<div class="row pt-3 mx-auto">
-<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> Copyright ©
-<script>
-document.write(new Date().getFullYear());
-</script>
-All rights reserved | This template is made with <i aria-hidden="true" class="icon-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-</div>
-</div>
-<!-- for footer -->
-<p></p>
-<!-- for site wrap -->
-<p></p>
-<!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
-<script src="/get_page/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/jquery-ui.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/popper.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/bootstrap.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
-<script src="/get_page/cmsimde/static/chimper/js/aos.js"></script>
-<!--
-            <script src="../cmsimde/static/chimper/js/typed.js"></script>
-                    <script>
-                    var typed = new Typed('.typed-words', {
-                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
-                    typeSpeed: 80,
-                    backSpeed: 80,
-                    backDelay: 4000,
-                    startDelay: 1000,
-                    loop: true,
-                    showCursor: true
-                    });
-                    </script>
-            -->
-<script src="/get_page/cmsimde/static/chimper/js/main.js"></script>
-<!-- 啟用 LaTeX equations 編輯 -->
-<p></p>
-<!-- <script>
-  MathJax = {
-    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
-  };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
-<p></p><h3>自動貪吃蛇</h3>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
+<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
+<div id="brython_div"></div>
+<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script><h3>自動貪吃蛇</h3>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <script src="/static/brython.js"></script>
@@ -397,16 +317,9 @@ run()
 <p></p>
 <!-- 程式執行 ouput 區 -->
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console" style="margin: 0px; width: 485px; height: 195px;"></textarea></div>
-<p><br/>HW2-2 &lt;&lt; <a href="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/HW2-2.html">Previous</a> <a href="/get_page/%E8%87%AA%E5%8B%95%E8%B2%AA%E5%90%83%E8%9B%87/HW3.html">Next</a> &gt;&gt; HW3</p>
-<!-- footer -->
+<p><br/><a href="https://colorlib.com" target="_blank"></a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 <div class="container">
-<div class="row pt-3 mx-auto">
-<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --> Copyright ©
-<script>
-document.write(new Date().getFullYear());
-</script>
-All rights reserved | This template is made with <i aria-hidden="true" class="icon-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-</div>
+<div class="row pt-3 mx-auto"></div>
 </div>
 <!-- for footer -->
 <p></p>
@@ -445,7 +358,7 @@ All rights reserved | This template is made with <i aria-hidden="true" class="ic
   };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
-<h2>方塊</h2>
+<p></p><h2>方塊</h2>
 <p><a href="https://40832244-github.github.io/cp2021_hw/content/%E6%89%8B%E5%8B%95%E6%96%B9%E5%A1%8A.html">手動方塊</a></p>
 <p><a href="https://40832244-github.github.io/cp2021_hw/content/%E8%87%AA%E5%8B%95%E6%96%B9%E5%A1%8A.html">自動方塊</a></p>
 <h3>手動方塊</h3>
