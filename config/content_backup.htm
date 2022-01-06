@@ -1738,6 +1738,13 @@ function doSave(storage_id, filename){
 }
 </script>
 </p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
 <p><!-- 印出版次與關鍵字程式 --></p>
 <p>
 <script type="text/python3">
@@ -1755,7 +1762,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/b08e2bf7a59cd09f0b43d283b3b59a05/raw/3b5d192a059a0c5562fe9401ade7df697354a803/final2.py"
+        url = "https://gist.githubusercontent.com/40832244-github/b08e2bf7a59cd09f0b43d283b3b59a05/raw/fc4de545ca69c8a524fe8ba1ee5e1de1f4f6d749/final2.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
