@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='課程教材.html'>課程教材</a><ul class='dropdown'><li><a href='齒輪run.html'>齒輪run</a><li class='has-children'><a href='貪吃蛇.html'>貪吃蛇</a><ul class='dropdown'><li><a href='手動貪吃蛇.html'>手動貪吃蛇</a><li><a href='自動貪吃蛇.html'>自動貪吃蛇</a><li><a href='無敵貪吃蛇.html'>無敵貪吃蛇</a><li><a href='有腦貪吃蛇.html'>有腦貪吃蛇</a></li></ul><li class='has-children'><a href='方塊.html'>方塊</a><ul class='dropdown'><li><a href='手動方塊.html'>手動方塊</a><li><a href='自動方塊.html'>自動方塊</a></li></ul><li><a href='W13 exam.html'>W13 exam</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='Set Up SSH.html'>Set Up SSH</a><li><a href='Pull Request.html'>Pull Request</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='W11 demo.html'>W11 demo</a><li><a href='W12 demo.html'>W12 demo</a></li></ul><li class='has-children'><a href='Final Project.html'>Final Project</a><ul class='dropdown'><li><a href='Final 1.html'>Final 1</a><li><a href='Final 2.html'>Final 2</a><li><a href='Final 3.html'>Final 3</a></li></ul><li><a href='40832244.html'>40832244</a></li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='課程教材.html'>課程教材</a><ul class='dropdown'><li><a href='add 1 to 10.html'>add 1 to 10</a><li><a href='國旗.html'>國旗</a><li><a href='齒輪run.html'>齒輪run</a><li class='has-children'><a href='貪吃蛇.html'>貪吃蛇</a><ul class='dropdown'><li><a href='手動貪吃蛇.html'>手動貪吃蛇</a><li><a href='自動貪吃蛇.html'>自動貪吃蛇</a><li><a href='無敵貪吃蛇.html'>無敵貪吃蛇</a><li><a href='有腦貪吃蛇.html'>有腦貪吃蛇</a></li></ul><li class='has-children'><a href='方塊.html'>方塊</a><ul class='dropdown'><li><a href='手動方塊.html'>手動方塊</a><li><a href='自動方塊.html'>自動方塊</a></li></ul><li><a href='W13 exam.html'>W13 exam</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='Set Up SSH.html'>Set Up SSH</a><li><a href='Pull Request.html'>Pull Request</a></li></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='W11 demo.html'>W11 demo</a><li><a href='W12 demo.html'>W12 demo</a></li></ul><li class='has-children'><a href='Final Project.html'>Final Project</a><ul class='dropdown'><li><a href='Final 1.html'>Final 1</a><li><a href='Final 2.html'>Final 2</a><li><a href='Final 3.html'>Final 3</a></li></ul><li><a href='40832244.html'>40832244</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,12 +142,14 @@ img.add_border {
     <div id="tipue_search_content">Final 3 << <a href='Final 3.html'>Previous</a> <br /><h1>40832244</h1>
 <p>1.紅色方塊</p>
 <p><button id="hw1_1">hw1_1</button><button id="hw1_2">hw1_2</button></p>
-<p>2.第十三週考試</p>
+<p>2.期中作業</p>
+<p><button id="add 1 to 10">add 1 to 10</button><button id="國旗">國旗</button></p>
+<p>3.第十三週考試</p>
 <p><button id="w13">w13</button></p>
-<p>3.作業三貪食蛇</p>
+<p>4.作業三貪食蛇</p>
 <p><button id="手動貪吃蛇">手動貪吃蛇</button><button id="自動貪吃蛇">自動貪吃蛇</button><button id="無敵貪吃蛇">無敵貪吃蛇</button><button id="有腦貪吃蛇">有腦貪吃蛇</button></p>
 <p>5.期末測驗</p>
-<p><button id="final_1">final_1</button><button id="final_2">final_2</button></p>
+<p><button id="final_1">final_1</button><button id="final_2">final_2</button><button id="final_3">final_3</button></p>
 <p>
 <script>
 ###############################################
@@ -266,6 +268,21 @@ document["hw1_1"].bind("click", hw1_1.prog)
 <script type="text/python3">
 import beditor
 from browser import document
+url = "https://gist.githubusercontent.com/40832244-github/1be5e80eb8ba7b782cd003d35a52f8a2/raw/a768a46134103c4cddfc08e172990c47242dd50e/1+10.py"
+src = open(url).read()
+add 1 to 10 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["add 1 to 10"].bind("click", add 1 to 10.prog)
+</script>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/40832244-github/3bc99a5ffdbd64dafe3826cb1b66a61d/raw/a7cc8eebac9581ee3ca448c9c9b831e961ee3a5c/%25E5%259C%258B%25E6%2597%2597.py"
+國旗 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["國旗"].bind("click", 國旗.prog)
+</script>
+<script type="text/python3">
+import beditor
+from browser import document
 url = "https://gist.githubusercontent.com/40832244-github/4be54f1baa8a1d16c1387b894a23e951/raw/b47695fff1b214f3faf3ce8a38f46ca79fa91988/%25E8%2587%25AA%25E5%258B%2595%25E8%25B2%25AA%25E5%2590%2583%25E8%259B%2587"
 src = open(url).read()
 hw1_2 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
@@ -326,6 +343,14 @@ url = "https://gist.githubusercontent.com/40832244-github/b08e2bf7a59cd09f0b43d2
 src = open(url).read()
 final_2 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["final_2"].bind("click", final_2.prog)
+</script>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/40832244-github/09ab7c1fe4481dc783c13fc457e52a67/raw/4c1264c8762f6f7b34e7999225a734f01afe89b4/Final3.py"
+src = open(url).read()
+final_3 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["final_3"].bind("click", final_3.prog)
 </script>
 <script>
 ############################################### // ]]&gt;</p>

@@ -139,7 +139,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Final 1 << <a href='Final 1.html'>Previous</a> <a href='Final 3.html'>Next</a> >> Final 3<br /><h1>Final 2</h1>
+    <div id="tipue_search_content">add 1 to 10 << <a href='add 1 to 10.html'>Previous</a> <a href='齒輪run.html'>Next</a> >> 齒輪run<br /><h1>國旗</h1>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -171,113 +171,99 @@ function doSave(storage_id, filename){
 }
 </script>
 </p>
-<script type="text/javascript">
-function doSave(storage_id, filename){
-    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
-    filename = document.getElementById(filename).value
-    saveAs(blob, filename+".py");
-}
-</script>
-<p><!-- 印出版次與關鍵字程式 --></p>
-<p>
+<p><!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
+<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
+<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script>
+</p>
+<p><!-- ######################  editor1 開始 ###################### --></p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<p><!-- 存擋表單開始 --></p>
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<p><!-- 存擋表單結束 --></p>
+<p></p>
+<p><!-- 執行與清除按鈕開始 --></p>
+<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
+<p></p>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
+<p><!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 --></p>
+<!-- 這裡的畫布 id 為 brython_div -->
+<div id="brython_div"></div>
+<p><!-- ######################  editor1 結束 ###################### --></p>
+<!-- 以下可以開始利用 editor1 的設定編寫對應 Brython 程式 -->
 <script type="text/python3">
 from browser import document as doc
 import ace
+
 # 清除畫布
-def clear_bd(ev):
+def clear_bd1(ev):
+    # 注意這裡清除的畫布 id 為 brython_div
     bd = doc["brython_div"]
     bd.clear()
-# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
-Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 # 從 gist 取出程式碼後, 放入 editor 作為 default 程式
-def run():
+def run1():
     # 利用 get 取下 src 變數值
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/40832244-github/b08e2bf7a59cd09f0b43d283b3b59a05/raw/ee981d7c4cdb89eed1df1925b3db3490ebd34255/final2.py"
+        url = "https://gist.githubusercontent.com/40832244-github/3bc99a5ffdbd64dafe3826cb1b66a61d/raw/a7cc8eebac9581ee3ca448c9c9b831e961ee3a5c/%25E5%259C%258B%25E6%2597%2597.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
-    Ace.editor.setValue(prog)
-    Ace.editor.scrollToRow(0)
-    Ace.editor.gotoLine(0)
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
     # 直接執行程式
-    #ns = {'_name_':'_main_'}
+    #ns = {'__name__':'__main__'}
     #exec(prog, ns)
     # 按下 run 按鈕
-    Ace.run()
+    Ace1.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
-doc['kw_run'].bind('click', Ace.run)
-doc['kw_show_console'].bind('click', Ace.show_console)
-doc['kw_clear_console'].bind('click', Ace.clear_console)
-doc['clear_bd'].bind('click', clear_bd)
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
 # 呼叫函式執行
-run()
+run1()
+</script>
+<!-- 以上為內建程式, 頁面可透過 ?src=gist_url 執行 -->
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+class button2:
+    def __init__(self, url):
+        self.url = url
+
+    # 記得加入 event 輸入變數
+    def do(self,ev):
+        Ace2.editor.setValue(open(self.url).read())
+        Ace2.editor.scrollToRow(0)
+        Ace2.editor.gotoLine(0)
+        Ace2.run()
+
+exam_url = "https://gist.githubusercontent.com/40832244-github/60e569247e38b90df7b1a37992259cc4/raw/102f7318980764525be90f519b9e8f3ce7143adc/Exam"
+exam = button2(exam_url)
+doc["exam"].bind('click', exam.do)
 </script>
 </p>
-<div id="brython_div"></div>
-<p><!-- 用來顯示程式碼的 editor 區域 --></p>
-<div id="kw_editor" style="width: 600px; height: 300px;"></div>
-<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
-<p>!-- 存擋表單開始 --&gt;</p>
-<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
-<p></p>
-<!-- 執行與清除按鈕開始 -->
-<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<!-- 執行與清除按鈕結束 -->
-<p></p>
-<!-- 程式執行 ouput 區 -->
-<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console" style="margin: 0px; width: 485px; height: 195px;"></textarea></div>
-<p><br/><a href="https://colorlib.com" target="_blank"></a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-<div class="container">
-<div class="row pt-3 mx-auto"></div>
-</div>
-<!-- for footer -->
-<p></p>
-<!-- for site wrap -->
-<p></p>
-<!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery-ui.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/popper.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/bootstrap.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/aos.js"></script>
-<!--
-            <script src="../cmsimde/static/chimper/js/typed.js"></script>
-                    <script>
-                    var typed = new Typed('.typed-words', {
-                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
-                    typeSpeed: 80,
-                    backSpeed: 80,
-                    backDelay: 4000,
-                    startDelay: 1000,
-                    loop: true,
-                    showCursor: true
-                    });
-                    </script>
-            -->
-<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/main.js"></script>
-<!-- 啟用 LaTeX equations 編輯 -->
-<p></p>
-<!-- <script>
-  MathJax = {
-    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
-  };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
-<p></p>
-<p><br/><a href="https://colorlib.com" target="_blank"></a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-<div class="container">
-<div class="row pt-3 mx-auto"></div>
-</div>
-<!-- for footer -->
 <p></p>
 <!-- for site wrap -->
 <p></p>
@@ -315,8 +301,7 @@ run()
   };
   </script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
-<p></p>
-<br />Final 1 << <a href='Final 1.html'>Previous</a> <a href='Final 3.html'>Next</a> >> Final 3</div>
+<p></p><br />add 1 to 10 << <a href='add 1 to 10.html'>Previous</a> <a href='齒輪run.html'>Next</a> >> 齒輪run</div>
         
     <!-- footer -->
       <div class="container">
