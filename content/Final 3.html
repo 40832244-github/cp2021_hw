@@ -139,53 +139,214 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">HW1 << <a href='HW1.html'>Previous</a> <a href='Pull Request.html'>Next</a> >> Pull Request<br /><h1>Set Up SSH</h1>
-<p>1.<span>點選資料夾的Portablegit</span><span>→bin→sh.exe</span></p>
-<p><span></span></p>
-<p><span><img alt="" height="250" src="./../images/SSH1.PNG" width="500"/></span></p>
-<p><span>2.</span>輸入ssh-keygen -t rsa -b 4096 -C "40832244"(需改成自己學號)</p>
-<h4>按enter<span>→輸入/y/tmp/id_rsa</span><span>→</span><span>連續按按2次enter</span></h4>
-<p><span></span></p>
-<p><span><img alt="" height="250" src="./../images/SSH2.PNG" width="500"/></span></p>
-<p><span>3.</span>下載putty_home、GitExtensions，將start_ipv4.bat移到白窗  並新增 </p>
-<table border="0" cellpadding="0" cellspacing="0">
-<tbody>
-<tr>
-<td class="gutter">
-<div class="line number1 index0 alt2">1</div>
-<div class="line number2 index1 alt1">2</div>
-</td>
-<td class="code">
+    <div id="tipue_search_content">Final 2 << <a href='Final 2.html'>Previous</a> <a href='40832244.html'>Next</a> >> 40832244<br /><h1>Final 3</h1>
+<!-- 導入 brython 程式庫 -->
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["py_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
+</p>
+<p><!-- 印出版次與關鍵字程式 --></p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd(ev):
+    bd = doc["brython_div"]
+    bd.clear()
+# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
+Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/40832244-github/09ab7c1fe4481dc783c13fc457e52a67/raw/4c1264c8762f6f7b34e7999225a734f01afe89b4/Final3.py"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace.editor.setValue(prog)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'_name_':'_main_'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run'].bind('click', Ace.run)
+doc['kw_show_console'].bind('click', Ace.show_console)
+doc['kw_clear_console'].bind('click', Ace.clear_console)
+doc['clear_bd'].bind('click', clear_bd)
+# 呼叫函式執行
+run()
+</script>
+</p>
+<div id="brython_div"></div>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<p>!-- 存擋表單開始 --&gt;</p>
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form>
+<p><!-- 存擋表單結束 --></p>
+<p></p>
+<p><!-- 執行與清除按鈕開始 --></p>
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
+<p></p>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console" style="margin: 0px; width: 485px; height: 195px;"></textarea></div>
+<p><br/><a href="https://colorlib.com" target="_blank"></a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 <div class="container">
-<div class="line number1 index0 alt2"><code class="html plain">set GIT_HOME=%Disk%:\Portablegit\bin\</code></div>
-<div class="line number2 index1 alt1"><code class="html plain">set GIT_SSH=%Disk%:\putty\plink.exe</code></div>
+<div class="row pt-3 mx-auto"></div>
 </div>
-</td>
-</tr>
-</tbody>
-</table>
-<p><img alt="" height="500" src="./../images/SSH.3.png" width="250"/></p>
-<p>4.打開.git資料夾，把config移到白窗，新增[remote "origin"]裡的url = <a href="mailto:git@github.com:40832244/cp2021.git">git@github.com:40832244/cp2021.git</a></p>
+<p><!-- for footer --></p>
 <p></p>
-<p><img alt="" height="103" src="./../images/SSH5.PNG" width="567"/></p>
-<p>5.打開Putty Key Generator，將鼠標在紅框中搖晃會產生鑰匙，並先將它複製站存於筆記本</p>
-<p>   完成後點選save public key(private 需多設一個密碼) 名為 id_rsa</p>
-<p><img alt="" height="288" src="./../images/SSH444.png" width="317"/></p>
-<p>6.打開Putty Configuration並照著圖片更改</p>
+<p><!-- for site wrap --></p>
 <p></p>
-<p><img alt="" height="373" src="./../images/SSH7.PNG" width="416"/></p>
-<p><img alt="" height="373" src="./../images/SSH88.PNG" width="415"/></p>
-<p>7.點選SSH旁邊的加號點Auth，點Browse...點選檔案</p>
-<p><img alt="" height="371" src="./../images/SSH99.png" width="413"/></p>
-<p>選去剛剛儲存的id_rsa(記得選成所有檔案才看的到)</p>
-<p><img alt="" height="349" src="./../images/SSH66.png" width="558"/></p>
-<p>8.回到第6.部頁面點save，進到github網頁setting的<a class="js-selected-navigation-item menu-item" data-selected-links="ssh_certificate_authorities /settings/keys" href="https://github.com/settings/keys">SSH and GPG keys</a>新增一把鑰匙，並到記事本內將剛剛在<span>Putty Key Generator產生的鑰匙貼上，並檢查句尾是不是你的學號</span></p>
-<p><span><img alt="" height="360" src="./../images/SSH11.PNG" width="559"/></span></p>
-<p><span>點選Add SSH key</span></p>
-<p><span><img alt="" height="307" src="./../images/SSH10.PNG" width="544"/></span></p>
-<p><span>完成!!!</span></p>
-<p><span></span></p>
-<br />HW1 << <a href='HW1.html'>Previous</a> <a href='Pull Request.html'>Next</a> >> Pull Request</div>
+<p><!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery-ui.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/popper.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/bootstrap.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/aos.js"></script>
+<!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+<script src="/get_page/%E6%96%B9%E5%A1%8A/text/%E6%96%B9%E5%A1%8A/text/cmsimde/static/chimper/js/main.js"></script>
+<!-- 啟用 LaTeX equations 編輯 --></p>
+<p></p>
+<p><!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>--></p>
+<p></p>
+<p><br/><a href="https://colorlib.com" target="_blank"></a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+<div class="container">
+<div class="row pt-3 mx-auto"></div>
+</div>
+<p><!-- for footer --></p>
+<p></p>
+<p><!-- for site wrap --></p>
+<p></p>
+<p><!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+<script src="/get_page/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery-ui.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/popper.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/bootstrap.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/aos.js"></script>
+<!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+<script src="/get_page/cmsimde/static/chimper/js/main.js"></script>
+<!-- 啟用 LaTeX equations 編輯 --></p>
+<p></p>
+<p><!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>--></p>
+<p></p>
+<p><!-- for site wrap --></p>
+<p style="text-align: center;"></p>
+<p><!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+<script src="/get_page/cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery-ui.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/popper.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/bootstrap.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+<script src="/get_page/cmsimde/static/chimper/js/aos.js"></script>
+<!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+<script src="/get_page/cmsimde/static/chimper/js/main.js"></script>
+<!-- 啟用 LaTeX equations 編輯 --></p>
+<p style="text-align: center;"></p>
+<p><!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>--></p>
+<p style="text-align: center;"></p><br />Final 2 << <a href='Final 2.html'>Previous</a> <a href='40832244.html'>Next</a> >> 40832244</div>
         
     <!-- footer -->
       <div class="container">
